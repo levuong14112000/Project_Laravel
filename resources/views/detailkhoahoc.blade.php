@@ -38,7 +38,7 @@
 </div>
 <div style="margin-top: 70px"></div>
 @foreach($ds as $n)
-    @if($n->course_id == 1)
+  
             <div id="course-sec" class="container-fluid">
         <div class="col"  >
             <div class="col-lg-4  col-md-4 col-sm-4" data-scroll-reveal="enter from the bottom after 0.4s">
@@ -51,7 +51,7 @@
         </div>
         </div
         ></div>
-    @endif
+
 @endforeach
 <div id="footer">
     <div class="text-center">

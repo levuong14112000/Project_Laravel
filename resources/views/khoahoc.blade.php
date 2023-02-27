@@ -10,7 +10,7 @@
             <div class="text-center">{{$n->course_name}}</div>
             <div class="pb-1 btn btn-button ">{{number_format($n->price)}} VNĐ</div>
             <div>
-                <a class="btn btn-primary" href="{{asset('/khoahoc'.$n->course_id)}}">Detail</a>
+                <a class="btn btn-primary" href="{{route('kh',[$n->course_id])}}">Detail</a>
             </div>
         </div>
     </div>
