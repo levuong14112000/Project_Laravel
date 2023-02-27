@@ -22,7 +22,7 @@ class myController extends Controller
             ->select('users.full_name','users.address','courses.course_name','users.decription','users.picture')
             ->distinct()
             ->get();
-        return view('layout.main')->with('ds',$query)->with('ds1',$query1);
+        return view('homepage')->with('ds',$query)->with('ds1',$query1);
         
     }
     // public function khoahoc(){

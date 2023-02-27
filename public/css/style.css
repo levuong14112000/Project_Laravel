@@ -139,6 +139,9 @@ h1::after {
   ===================================*/
 .about-div {
     padding: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 .icon-round-border {
     border: 10px double #1A94C4;
