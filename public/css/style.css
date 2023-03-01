@@ -20,6 +20,13 @@ body {
     padding-top:30px;
     padding-bottom:50px;
 }
+
+/* SET LESSIONS */
+.set-lessions{
+    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+}
 /*=====================================
   NAVBAR STYLES
     ===================================*/

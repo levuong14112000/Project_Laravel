@@ -20,3 +20,6 @@ Route::get('/main',[\App\Http\Controllers\myController::class,'main']);
 Route::get('/khoahoc/{id}',[\App\Http\Controllers\myController::class,'detail'])->name('kh');
 Route::get('contact',[\App\Http\Controllers\myController::class,'contact'])->name('contact');
 Route::post('postcontact',[\App\Http\Controllers\myController::class,'postcontact'])->name('postcontact');
+
+Route::get('lessionsshow/{id}/{key}',[\App\Http\Controllers\myController::class,'lessionsshow'])->name('lsshow');
+

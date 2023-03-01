@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\courses;
 use App\Models\subject;
 use App\Models\users;
@@ -12,20 +13,20 @@ use Illuminate\Mail\Mailer;
 
 class myController extends Controller
 {
-    public function main(){
-        $query =DB::table('courses') //Sử dụng class DB
-        ->select("course_id","course_name","description","price","picture")
+    public function main()
+    {
+        $query = DB::table('courses') //Sử dụng class DB
+            ->select("course_id", "course_name", "description", "price", "picture")
             //
-            ->orderBy('course_name','ASC')
+            ->orderBy('course_name', 'ASC')
             ->get();
-            $query1 = DB::table('users')
+        $query1 = DB::table('users')
             ->join('subject', 'users.user_id', '=', 'subject.user_id')
             ->join('courses', 'subject.course_id', '=', 'courses.course_id')
-            ->select('users.full_name','users.address','courses.course_name','users.decription','users.picture')
+            ->select('users.full_name', 'users.address', 'courses.course_name', 'users.decription', 'users.picture')
             ->distinct()
             ->get();
-        return view('homepage')->with('ds',$query)->with('ds1',$query1);
-        
+        return view('homepage')->with('ds', $query)->with('ds1', $query1);
     }
     // public function khoahoc(){
     //     $query =DB::table('courses') //Sử dụng class DB
@@ -41,35 +42,56 @@ class myController extends Controller
     //         ->get();
     //     return view('khoahoc')->with('ds',$query)->with('ds1',$query1);
     // }
-    public function detail($id){
-        $query =DB::table('subject') //Sử dụng class DB
-        ->select("course_id","subject_name","content","picture")
-            ->where('course_id','=',$id)
-            ->orderBy('subject_name','ASC')
+    public function detail($id)
+    {
+        $query = DB::table('subject') //Sử dụng class DB
+            ->select("course_id", "subject_name", "content", "picture", "subject_id")
+            ->where('course_id', '=', $id)
+            ->orderBy('subject_name', 'ASC')
             ->get();
 
-        return view('detailkhoahoc')->with('ds',$query );
+        $qr = DB::table('lessions') //Sử dụng class DB
+            ->select("lession_name")
+
+            ->orderBy('lession_name', 'ASC')
+            ->get();
+
+        return view('detailkhoahoc')->with('ds', $query)->with('ls', $qr);
     }
 
-    public function contact(){
+    public function contact()
+    {
         return view('contact');
     }
-    public function postcontact(Request $request){
-        $fl=['name'=>$request->name];
-        Mail::send('email.emailcontact',$fl, function($mail) use($request) {
-            $mail->to('infocheck0808@gmail.com',$request->name);
-            $mail->from($request->email);
-            $mail->subject('Test mail!');
-        }
-    );
-    
-    // if (Mail::failures()) {
-    //     return redirect()->back()->with('error', 'Gửi email thất bại');
-    // } else {
-    //     return redirect()->back()->with('success', 'Gửi email thành công');
-    // }
-
-    return view('email.emailcontact')->with( $fl);
+    public function postcontact(Request $request)
+    {
+        $fl = ['name' => $request->name];
+        Mail::send(
+            'email.emailcontact',
+            $fl,
+            function ($mail) use ($request) {
+                $mail->to('infocheck0808@gmail.com', $request->name);
+                $mail->from($request->email);
+                $mail->subject('Test mail!');
+            }
+        );
+        return view('email.emailcontact')->with($fl);
     }
 
+    public function lessionsshow($id, $key)
+    {
+        $query = DB::table('subject') //Sử dụng class DB
+            ->select("course_id", "subject_name", "content", "picture", "subject_id")
+            ->where('course_id', '=', $id)
+            ->orderBy('subject_name', 'ASC')
+            ->get();
+
+        $qr = DB::table('lessions') //Sử dụng class DB
+            ->select("lession_name")
+            ->where('subject_id', '=', $key)
+            ->orderBy('lession_name', 'ASC')
+            ->get();
+
+        return view('lessionsview')->with('ds', $query)->with('ls', $qr);
+    }
 }
