@@ -7,6 +7,7 @@ use App\Models\users;
 use App\Models\usersroloes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class myController extends Controller
 {
@@ -47,6 +48,21 @@ class myController extends Controller
             ->get();
 
         return view('detailkhoahoc')->with('ds',$query );
+    }
+
+    public function contact(){
+        return view('contact');
+    }
+    public function postcontact(Request $request){
+        Mail::send('email.emailcontact', [
+            'name'=> $request->name,
+            'message'=> $request->message,
+        ], function($mail) use($request) {
+            $mail->to('infocheck0808@gmail.com',$request->name);
+            $mail->from($request->email);
+            $mail->subject('Test mail!');
+        }
+    );
     }
 
 }

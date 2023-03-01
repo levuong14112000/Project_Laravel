@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 Route::get('/main',[\App\Http\Controllers\myController::class,'main']);
 Route::get('/khoahoc/{id}',[\App\Http\Controllers\myController::class,'detail'])->name('kh');
+Route::get('contact','myController@contact')->name('contact');
+Route::post('contact','myController@postcontact')->name('contact');
