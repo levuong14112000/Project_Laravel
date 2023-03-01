@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\myController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 Route::get('/main',[\App\Http\Controllers\myController::class,'main']);
 Route::get('/khoahoc/{id}',[\App\Http\Controllers\myController::class,'detail'])->name('kh');
-Route::get('contact','myController@contact')->name('contact');
-Route::post('contact','myController@postcontact')->name('contact');
+Route::get('contact',[\App\Http\Controllers\myController::class,'contact'])->name('contact');
+Route::post('postcontact',[\App\Http\Controllers\myController::class,'postcontact'])->name('postcontact');

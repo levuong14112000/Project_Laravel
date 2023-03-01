@@ -8,6 +8,7 @@ use App\Models\usersroloes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Mail\Mailer;
 
 class myController extends Controller
 {
@@ -54,15 +55,21 @@ class myController extends Controller
         return view('contact');
     }
     public function postcontact(Request $request){
-        Mail::send('email.emailcontact', [
-            'name'=> $request->name,
-            'message'=> $request->message,
-        ], function($mail) use($request) {
+        $fl=['name'=>$request->name];
+        Mail::send('email.emailcontact',$fl, function($mail) use($request) {
             $mail->to('infocheck0808@gmail.com',$request->name);
             $mail->from($request->email);
             $mail->subject('Test mail!');
         }
     );
+    
+    // if (Mail::failures()) {
+    //     return redirect()->back()->with('error', 'Gửi email thất bại');
+    // } else {
+    //     return redirect()->back()->with('success', 'Gửi email thành công');
+    // }
+
+    return view('email.emailcontact')->with( $fl);
     }
 
 }

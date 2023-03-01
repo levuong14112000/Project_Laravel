@@ -1,5 +1,5 @@
 
-<form method="post">
+<form method="post" action="postcontact">
     @csrf
     <div class="form-group" role="form">
         <input type="text" class="form-control " required="required" placeholder="Your Name" name="name"/>
