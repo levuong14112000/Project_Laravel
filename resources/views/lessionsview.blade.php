@@ -1,8 +1,15 @@
 @extends('detailkhoahoc')
 @section("lessionsview")
-<div>
-@foreach($ls as $s)
-<h3>{{$s->lession_name}}</h3>
-@endforeach
+<div class="d-flex flex-column">
+    <div>
+        @foreach($vd as $v)
+        <img class="img-thumbnail" style="height: 208.96px;" src="{{asset('img/sub/'.$v->picture)}}" alt="">
+        @endforeach
+    </div>
+        @foreach($ls as $l)
+        <h4>{{$l->lession_name}}</h4>
+        @endforeach
+    </div>
 </div>
+
 @endsection

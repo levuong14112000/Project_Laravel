@@ -59,6 +59,8 @@ class myController extends Controller
         return view('detailkhoahoc')->with('ds', $query)->with('ls', $qr);
     }
 
+
+    //Gủi mail Contact Us
     public function contact()
     {
         return view('contact');
@@ -78,6 +80,7 @@ class myController extends Controller
         return view('email.emailcontact')->with($fl);
     }
 
+    //Hiển thị danh dách Lessions
     public function lessionsshow($id, $key)
     {
         $query = DB::table('subject') //Sử dụng class DB
@@ -92,6 +95,33 @@ class myController extends Controller
             ->orderBy('lession_name', 'ASC')
             ->get();
 
-        return view('lessionsview')->with('ds', $query)->with('ls', $qr);
+        $vd = DB::table('subject')
+        ->join('lessions', 'subject.subject_id', '=', 'lessions.subject_id')
+        ->select("subject.course_id", "subject.subject_name", "subject.content", "subject.picture", "subject.subject_id", "subject.picture", "lessions.lession_name")
+        ->where([['subject.course_id', '=', $id],['subject.subject_id', '=', $key]])
+        ->orderBy('lessions.lession_name', 'ASC')
+        ->limit(1)
+        ->get();
+
+return view('lessionsview')->with('vd', $vd)->with('ds', $query)->with('ls', $qr);
+
+        // return view('lessionsview')->with('ds', $query)->with('ls', $qr);
+    }
+
+    //Ảnh khoá học
+    public function showpiccourse($id)
+    {
+        // $query = DB::table('subject') //Sử dụng class DB
+        //     ->select("course_id", "subject_name", "content", "picture", "subject_id")
+        //     ->where('course_id', '=', $id)
+        //     ->orderBy('subject_name', 'ASC')
+        //     ->get();
+
+        $piccourse = DB::table('courses')
+            ->select('course_id', 'picture')
+            ->where('course_id', '=', $id)
+            ->get();
+
+            return view('piccourse')->with('pc', $piccourse);
     }
 }

@@ -22,7 +22,10 @@
 
         <div class="col-lg-8">
             <div id="course-sec" class="container set-lessions">
+                
+ 
                 @yield('lessionsview')
+                
             </div>
         </div>
     </div>
