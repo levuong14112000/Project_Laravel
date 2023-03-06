@@ -16,7 +16,7 @@ use App\Http\Controllers\myController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/main',[\App\Http\Controllers\myController::class,'main']);
+Route::get('/main',[\App\Http\Controllers\myController::class,'main'])->name('main');
 Route::get('/khoahoc/{id}',[\App\Http\Controllers\myController::class,'detail'])->name('kh');
 Route::get('contact',[\App\Http\Controllers\myController::class,'contact'])->name('contact');
 Route::post('postcontact',[\App\Http\Controllers\myController::class,'postcontact'])->name('postcontact');

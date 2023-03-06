@@ -55,8 +55,14 @@ class myController extends Controller
 
             ->orderBy('lession_name', 'ASC')
             ->get();
+        
+        $anhkhoahoc_id = DB::table('courses') //Sử dụng class DB
+            ->select("course_id", "course_name", "description", "price", "picture")
+            ->where('course_id','=',$id)
+            ->orderBy('course_name', 'ASC')
+            ->get();
 
-        return view('detailkhoahoc')->with('ds', $query)->with('ls', $qr);
+        return view('detailkhoahoc')->with('ds', $query)->with('ls', $qr)->with('anhkhoahocid',$anhkhoahoc_id);
     }
 
 

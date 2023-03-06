@@ -18,16 +18,22 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css' />
 </head>
 <body >
-
-@include('layout.header')
+<header>
+    @include('layout.header')
+</header>
 <!--NAVBAR SECTION END-->
 
 <!-- MAIN -->
+<main>
 @yield('content')
+</main>
+
 <!-- END MAIN -->
 
 <!-- CONTACT SECTION END-->
-@include('layout.footer')
+<footer>
+    @include('layout.footer')
+</footer>
 <script  href="{{ asset('js/bootstrap.js') }}"></script>
 <script  href="{{ asset('js/custom.js') }}"></script>
 <script  href="{{ asset('js/jquery-1.10.2.js') }}"></script>

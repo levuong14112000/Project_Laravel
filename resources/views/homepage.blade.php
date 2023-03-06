@@ -26,7 +26,7 @@
             <div class="col-lg-12  col-md-12 col-sm-12">
 
                 <h2 data-scroll-reveal="enter from the bottom after 0.1s"> WELCOME TO THE UAB </h2>
-                <p class="text-info" style="font-style: italic">College of arts and sciences</p>
+                <!-- <p class="text-info" style="font-style: italic">College of arts and sciences</p> -->
             </div>
         </div>
     </div>
@@ -34,12 +34,12 @@
 </div>
 <!--HOME SECTION TAG LINE END-->
 <div id="features-sec" class="container set-pad">
-    <div class="row text-center">
+    <!-- <div class="row text-center">
         <div class="col-lg-8 col-lg-offset-2 col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
             <h1 data-scroll-reveal="enter from the bottom after 0.2s" class="header-line">FEATURE LIST </h1>
         </div>
 
-    </div>
+    </div> -->
     <!--/.HEADER LINE END-->
 
     <!-- FEATURE LIST -->
@@ -47,32 +47,31 @@
         <div class="col-lg-4  col-md-4 col-sm-4" data-scroll-reveal="enter from the bottom after 0.4s">
             <div class="about-div">
                 <i class="fa fa-paper-plane-o fa-4x icon-round-border"></i>
-                <h3>Quality Education</h3>
+                <h3 class="text-center">CHẤT LƯỢNG GIÁO DỤC</h3>
                 <p>
-                    Education quality is the fulfillment of the goals of the educational institution or educational program, and the requirements of the Law on Education, the Law amending and supplementing a number of articles of the Law on Education, the Law on Higher Education. , in line with the needs of using human resources for the socio-economic development of the locality and the whole country.
+                Chất lượng giáo dục là việc đáp ứng các mục tiêu của chương trình giáo dục và pháp luật về giáo dục, phù hợp với nhu cầu sử dụng nhân lực cho sự phát triển kinh tế-xã hội của địa phương và cả nước.
                 </p>
-                <a href="#" class="btn btn-info btn-set">ASK THE EXPERT</a>
+                <a href="#contact-sec" class="btn btn-info btn-set">ASK THE EXPERT</a>
             </div>
         </div>
         <div class="col-lg-4  col-md-4 col-sm-4" data-scroll-reveal="enter from the bottom after 0.5s">
             <div class="about-div">
                 <i class="fa fa-bolt fa-4x icon-round-border"></i>
-                <h3>SYSTEMATIC</h3>
+                <h3 class="text-center">CHƯƠNG TRÌNH GIẢNG DẠY</h3>
                 <p>
-                    A systematic approach is often used at projects in the workplace. The goal of this approach is to identify the most efficient means of generating consistent and optimum results. Various companies need this kind of approach for them to equip employees with enough knowledge and resources to achieve the company's goal.
+                Phương pháp tiếp cận hệ thống thường được sử dụng trong các dự án tại nơi làm việc để đạt được kết quả tối ưu và trang bị cho bạn đầy đủ kiến thức và tài nguyên để đạt được mục tiêu đề ra.
                 </p>
-                <a href="#" class="btn btn-info btn-set">ASK THE EXPERT</a>
+                <a href="#contact-sec" class="btn btn-info btn-set">ASK THE EXPERT</a>
             </div>
         </div>
         <div class="col-lg-4  col-md-4 col-sm-4" data-scroll-reveal="enter from the bottom after 0.6s">
             <div class="about-div">
                 <i class="fa fa-magic fa-4x icon-round-border"></i>
-                <h3>ONE TO ONE STUDY</h3>
+                <h3 class="text-center">ONE TO ONE STUDY</h3>
                 <p>
-                    “One to One” – The method of learning which is no longer strange in the world, but in Vietnam it is always thought as a form of tutoring (the teacher is the amateur students)
-                    This is a method of learning with qualified native English-speaking teachers not only bring efficiency but also convenience for learners.
+                "One-to-one study" là một phương pháp học tập trong đó một giảng viên dạy một học viên hoặc một nhóm học viên nhỏ. Hình thức học này thường được coi là hiệu quả và có thể được điều chỉnh phù hợp với nhu cầu học tập của từng học viên.
                 </p>
-                <a href="#" class="btn btn-info btn-set">ASK THE EXPERT</a>
+                <a href="#contact-sec" class="btn btn-info btn-set">ASK THE EXPERT</a>
             </div>
         </div>
     </div>
